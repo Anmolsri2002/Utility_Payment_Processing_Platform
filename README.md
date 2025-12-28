@@ -28,7 +28,7 @@ This project simulates a real-world utility payment processing platform with fea
 
 **Clone the repository**
 
-git clone https://github.com/Anmolsri2002/Utility_Payment_Processing_Platform.git
-cd Utility_Payment_Processing_Platform
+- git clone https://github.com/Anmolsri2002/Utility_Payment_Processing_Platform.git
+- cd Utility_Payment_Processing_Platform
 
 
