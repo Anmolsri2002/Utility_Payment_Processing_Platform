@@ -50,8 +50,22 @@ public class PaymentService {
         PaymentEntity payment = paymentrepo.findByTransactionId(transactionId)
                 .orElseThrow(() ->
                         new RuntimeException("Payment not found"));
+        SubscriberEntity subscriber = subscriberrepo
+                .findById(payment.getSubscriberId())
+                .orElseThrow(() ->
+                        new RuntimeException("Subscriber not found"));
 
-        return new PaymentResponse(payment.getTransactionId());
+        BillerEntity biller = billerrepo
+                .findById(payment.getBillerID())
+                .orElseThrow(() ->
+                        new RuntimeException("Biller not found"));
+        return new PaymentResponse(payment.getAmount(),
+                biller.getId(),
+                biller.getCompanyName(),
+                payment.getStatus().name(),
+                subscriber.getId(),
+                subscriber.getName(),
+                payment.getTransactionId());
     }
 
     private PaymentResponse toDto(PaymentEntity PayEntity){

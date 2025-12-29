@@ -19,7 +19,7 @@ public class SubscriberController {
     @PostMapping("/register")
     public ResponseEntity<ApiResponse<String>> register(@RequestBody SubscriberEntity subscriber){
         subscriberService.register(subscriber.getId(), subscriber.getName());
-        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(null, "Subscriber Registered Successfully", 201));
+        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(subscriber.getId(), "Subscriber Registered Successfully", 201));
     }
 
     @PostMapping("/login")

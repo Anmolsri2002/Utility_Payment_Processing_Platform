@@ -3,6 +3,7 @@ package com.example.utility_payment_processing_platform.entities;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="Payments")
@@ -30,6 +31,12 @@ public class PaymentEntity {
     @Enumerated(EnumType.STRING)
     @Column(name="Status", nullable = false)
     private PaymentStatus status;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at", nullable = false)
+    private LocalDateTime updatedAt;
 
     public BigDecimal getAmount() {
         return amount;

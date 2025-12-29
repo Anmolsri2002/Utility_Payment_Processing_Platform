@@ -22,6 +22,6 @@ public class BillerController {
     @PostMapping("/register")
     public ResponseEntity<ApiResponse<String>> register(@RequestBody BillerEntity biller){
         billerservice.SaveBillerDetails(biller.getId(), biller.getCompanyName());
-        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<>(null, "Biller Registered Successfully", 201));
+        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse<String>(biller.getId(), "Biller Registered Successfully", 201));
     }
 }

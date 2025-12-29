@@ -10,4 +10,16 @@ public class ApiResponse<T>{
         this.message = message;
         this.status = status;
     }
+
+    public T getData() {
+        return data;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public int getStatus() {
+        return status;
+    }
 }
